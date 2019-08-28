@@ -1,0 +1,7 @@
+node_modules
+example
+coverage
+build
+.vscode
+.eslintignore
+.eslintrc.js

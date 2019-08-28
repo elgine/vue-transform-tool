@@ -1,0 +1,24 @@
+{
+    "presets": [
+        ["@babel/preset-env", {"useBuiltIns": "usage", "modules": "commonjs"}],
+        ["@babel/preset-typescript", {"isTSX": true, "allExtensions": true}],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-react-jsx",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-transform-regenerator",
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "absoluteRuntime": false,
+                "corejs": false,
+                "helpers": true,
+                "regenerator": true,
+                "useESModules": false
+            }
+        ]
+    ]
+}

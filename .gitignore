@@ -1,0 +1,10 @@
+/dist
+/node_modules
+/.vscode/ipch
+/.idea
+/dist
+/cmake-build-debug
+/target
+/**/*.rs.bk
+yarn-error.log
+yarn.lock

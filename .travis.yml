@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "10"
+# Travis-CI Caching
+cache:
+  directories:
+    - node_modules
+
+install:
+  - yarn
+script:
+  - yarn test
+  - yarn run build
+deploy:
+  - provider: npm
+    email: 624157383@qq.com
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+
+branches:
+  only:
+    - master
