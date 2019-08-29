@@ -3,7 +3,7 @@
   "version": "0.0.2-alpha",
   "description": "Transform tool component for editor-like application",
   "main": "./dist/index.js",
-  "types": "./index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest --coverage",
     "start": "npm run build && npm run example",
