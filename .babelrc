@@ -1,13 +1,10 @@
 {
     "presets": [
-        ["@babel/preset-env", {"useBuiltIns": "usage", "modules": "commonjs"}],
-        ["@babel/preset-typescript", {"isTSX": true, "allExtensions": true}],
-        "@babel/preset-react"
+        ["@babel/preset-env", {"useBuiltIns": "usage", "modules": "commonjs"}]
     ],
     "plugins": [
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-proposal-object-rest-spread",
-        "@babel/plugin-transform-react-jsx",
         "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-transform-regenerator",
         [
