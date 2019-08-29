@@ -1,7 +1,9 @@
 const webpack = require('webpack');
-const path = require('path');
 const merge = require('webpack-merge');
+const path = require('path');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const htmlTemplate = require('./htmlTemplate');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -13,6 +15,7 @@ let env;
 const outputDir = isElectron() ? config.electronRendererOutputDir : config.webOutputDir;
 
 const plugins = [
+    new VueLoaderPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin()
 ];
 
@@ -36,6 +39,9 @@ if (isDev()) {
     env = {
         plugins: [
             new CleanWebpackPlugin(),
+            new CopyPlugin([
+                { from: path.resolve(__dirname, '../typings/index.d.ts'), to: outputDir },
+            ]),
             new CompressionWebpackPlugin({
                 filename: '[path].gz[query]',
                 algorithm: 'gzip',
@@ -77,6 +83,17 @@ const base = {
                 test: /\.(j|t)sx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
             }
         ]
     },
